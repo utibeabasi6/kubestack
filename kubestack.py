@@ -15,7 +15,7 @@ def print_intro():
     ""]
 
     for string in intro:
-        print(string.center(60, "+"))
+        print(string.center(80, "+"))
 
 manifests = [
     "Deployment",
@@ -23,7 +23,7 @@ manifests = [
     "Ingress",
 ]
 
-if __name__ == "__main__":
+def main():
     print_intro()
     print("Here are the manifests we currently support")
     for index, manifest in enumerate(manifests):
@@ -42,4 +42,9 @@ if __name__ == "__main__":
     if manifest == "Deployment":
         import manifests.deployment as deployment
         deployment.collect_data()
-        deployment.generate_template()
+        manifest = deployment.generate_template()
+        with open("deployment.yaml", "w") as f:
+            f.write(manifest)
+
+if __name__ == "__main__":
+    main()

@@ -1,5 +1,4 @@
-from jinja2 import Environment, FileSystemLoader, select_autoescape
-
+from jinja2 import Environment, FileSystemLoader, PackageLoader, select_autoescape
 
 NAME = ""
 IMAGE = ""
@@ -26,8 +25,9 @@ def collect_data():
 
 def generate_template():
     env = Environment(
-        loader=FileSystemLoader("templates"),
+        loader=PackageLoader("manifests", "templates"),
         autoescape=select_autoescape()
     )
     template = env.get_template("deployment.yaml")
-    print(template.render(name=NAME, image=IMAGE))
+    print("Generating deployment manifest".center(80, "-"))
+    return template.render(name=NAME, image=IMAGE)

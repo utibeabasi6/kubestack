@@ -1,3 +1,6 @@
+dev: 
+	pip3 install -e .
+
 install: 
-	@chmod +x ./main.sh
-	@alias "kubestack=./main.sh"
+	pip3 install .
+
