@@ -8,4 +8,4 @@ A CLI tool for setting up common Kubernetes resources
 - Change directories with `cd kubestack`
 - Run the command `pip3 install -r requirements.txt` to install required dependencies
 - Run `make install` to install kubestack
-- Run the command `kubestack` to see it in action!
+- Run the command `kubestack` in any directory to see it in action!

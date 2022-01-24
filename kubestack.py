@@ -19,8 +19,6 @@ def print_intro():
 
 manifests = [
     "Deployment",
-    "Service",
-    "Ingress",
 ]
 
 def main():
@@ -45,6 +43,7 @@ def main():
         manifest = deployment.generate_template()
         with open("deployment.yaml", "w") as f:
             f.write(manifest)
+        print("Your manifest has been generated in the current directory")
 
 if __name__ == "__main__":
     main()
